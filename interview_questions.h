@@ -14,3 +14,27 @@
 * Postconditions: None                                      *
 *************************************************************/
 char* my_str_n_cpy(char *dest, const char *src);
+
+/*************************************************************
+* Function: binary_search                                   *
+* Date Created: 12/1/2016                                   *
+* Date Last Modified: 12/1/2016                             *
+* Description: Finds the index of a target value in an int array
+* Input parameters: Sorted integer array, target value      *
+* Returns: Index of target value (-1 if not found)          *
+* Preconditions: None                                       *
+* Postconditions: None                                      *
+*************************************************************/
+int binary_search(int sorted_array[10], int targ);
+
+/*************************************************************
+* Function: bubble_sort                                     *
+* Date Created: 12/2/2016                                   *
+* Date Last Modified: 12/2/2016                             *
+* Description: Sorts an array of strings based on ASCII values
+* Input parameters: Array of pointers to strings, size of array
+* Returns: None                                             *
+* Preconditions: None                                       *
+* Postconditions: None                                      *
+*************************************************************/
+void bubble_sort(char *arr[], int size);
