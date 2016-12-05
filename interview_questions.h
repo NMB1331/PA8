@@ -38,3 +38,27 @@ int binary_search(int sorted_array[10], int targ);
 * Postconditions: None                                      *
 *************************************************************/
 void bubble_sort(char *arr[], int size);
+
+/*************************************************************
+* Function: is_palindrome                                   *
+* Date Created: 12/4/2016                                   *
+* Date Last Modified: 12/4/2016                             *
+* Description: Recursively determines if a strin is a palindrome
+* Input parameters: String, and integer length              *
+* Returns: 1 if palindrome, 0 otherwise                     *
+* Preconditions: None                                       *
+* Postconditions: None                                      *
+*************************************************************/
+int is_palindrome(char *string, int length);
+
+/*************************************************************
+* Function: sum_primes                                      *
+* Date Created: 12/4/2016                                   *
+* Date Last Modified: 12/4/2016                             *
+* Description: Recursively calculates the sum of primes to a number
+* Input parameters: Unsinged integer n                      *
+* Returns: The sum of the primes up to n                    *
+* Preconditions: None                                       *
+* Postconditions: None                                      *
+*************************************************************/
+int sum_primes(unsigned int n);

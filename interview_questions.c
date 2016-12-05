@@ -9,8 +9,8 @@ char* my_str_n_cpy(char *dest, const char *src)
   while (*src)
   {
     *dest = *src;
-    *dest++;
-    *src++;
+    dest++;
+    src++;
   }
   *dest++ = '\0';
   return temp;
@@ -23,12 +23,6 @@ int binary_search(int sorted_array[10], int targ)
   while (left <= right)
   {
     mid = (right - left) / 2;
-
-    /*
-    printf("Left: %d\n", left);
-    printf("Right: %d\n", right);
-    printf("Mid: %d\n", mid);
-    */
 
     if(sorted_array[mid] < targ)
     {
@@ -54,7 +48,6 @@ void bubble_sort(char *arr[], int size)
   {
     for (int j=0; j<(size-i-1); j++)
     {
-      printf("strcmp: %d\n", strcmp(arr[j], arr[j+1]));
       if (strcmp(arr[j], arr[j+1]) > 0)
       {
         char *temp = arr[j+1];
@@ -67,3 +60,135 @@ void bubble_sort(char *arr[], int size)
   }
 
 }
+
+//Function that recursively determines if a string is a palindrome
+int is_palindrome(char *string, int length)
+{
+  //printf("Initial length: %d\n", length);
+  //Sets length to the next character
+  length--;
+  while (string[length] == ' ')
+  {
+    length--;
+  }
+  //printf("Adjusted length: %d\n",length);
+
+  //Determines how many characters have been checked
+  int num_chars = 0, counter = strlen(string)-1, start = 0;
+  while (counter > length)
+  {
+    if (string[counter] != ' ')
+    {
+      num_chars += 1;
+    }
+    counter--;
+  }
+  //printf("Num chars: %d\n", num_chars);
+
+  //Sets the start
+  int right_counter = 0;
+  while(num_chars > 0)
+  {
+    if (string[right_counter] != ' ')
+    {
+      num_chars--;
+    }
+    right_counter++;
+  }
+  while (string[right_counter] == ' ')
+  {
+    right_counter++;
+  }
+  //printf("Right counter: %d\n", right_counter);
+  //printf("right side: %c   left side: %c\n\n", string[right_counter], string[length]);
+
+  //Compares the two sides
+  if (right_counter >= length)
+  {
+    return 1;
+  }
+
+  if (string[right_counter] != string[length])
+  {
+    return 0;
+  }
+  else
+  {
+    return is_palindrome(string, length);
+  }
+
+
+
+}
+
+//Function that checks if a number is prime (code from http://stackoverflow.com/questions/5281779/c-how-to-test-easily-if-it-is-prime-number)
+int is_prime(int num)
+{
+     if (num <= 1) return 0;
+     if (num % 2 == 0 && num > 2) return 0;
+     for(int i = 3; i < num/2; i+= 2)
+     {
+         if (num % i == 0)
+             return 0;
+     }
+     return 1;
+}
+
+//Function that recursively calculates the sum of all the primes up to a number
+int sum_primes(unsigned int n)
+{
+  int sum = 0;
+  if (n < 2)
+  {
+    return 0;
+  }
+
+  if (is_prime(n)) //I could put the "prime" logic here, but I thought this would be more readable
+  {
+    //printf("Prime: %d\n", n);
+    sum = n;
+  }
+  else
+  {
+    sum = 0;
+  }
+
+  return sum + sum_primes(n-1);
+
+
+}
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
