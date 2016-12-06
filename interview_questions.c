@@ -18,25 +18,25 @@ char* my_str_n_cpy(char *dest, const char *src)
 }
 
 //Function that finds the index of an item in a sorted array using binary search
-int binary_search(int sorted_array[10], int targ, int size)
+int binary_search(int sorted_array[], int targ, int size)
 {
-  int left = 0, right = size, mid = 0;
+  int left = 0, right = size-1, mid = (left + right) / 2;
   while (left <= right)
   {
-    mid = (right - left) / 2;
 
     if(sorted_array[mid] < targ)
     {
-      right = mid - 1;
-    }
-    else if(sorted_array[mid] > targ)
-    {
       left = mid + 1;
     }
-    else
+    else if(sorted_array[mid] == targ)
     {
       return mid;
     }
+    else
+    {
+      right = mid - 1;
+    }
+    mid = (right + left) / 2;
 
   }
   return -1;

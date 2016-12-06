@@ -20,7 +20,7 @@ int main(void)
 
 	//Test code for binary search
 	printf("\nBINARY SEARCH\n");
-	printf("The index of 11 is %d\n", binary_search(my_arr, 8, 10));
+	printf("The index of 7 is %d\n", binary_search(my_arr, 7, 10));
 
 	//Test code for bubble sort
 	printf("\nBUBBLE SORT\n");
