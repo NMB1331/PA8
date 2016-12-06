@@ -159,16 +159,26 @@ int sum_primes(unsigned int n)
 
 }
 
+//Function that initializes the array for problem 6
+void init_occ_array(Occurrences occ[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		occ[i].num_occurrences = 0;
+		occ[i].frequency = 0.0;
+	}
+}
+
 //Function that determines the frequency of each character found in a string
 void maximum_occurrences(char *string, Occurrences occ[], int *max, char *max_char)
 {
   int counter = 0;
   //Loops through the string; counts number of each letter
-  while (string)
+  for (int i=0; i<strlen(string); i++)
   {
-      occ[*string].num_occurrences++;
+    int char_index = (int) string[i];
+      occ[char_index].num_occurrences += 1;
       counter++;
-      string++;
   }
   //Determines the frequency of every character (letter)
   for (int i=0; i<NUM_CHARS; i++)
@@ -176,9 +186,10 @@ void maximum_occurrences(char *string, Occurrences occ[], int *max, char *max_ch
     occ[i].frequency = (double) occ[i].num_occurrences / counter;
   }
   //Returns (through pointers) the character with the max number of occurrences
+  // (only symbols- no whitespace)
   *max = 0;
   *max_char = '\0';
-  for (int i=0; i<NUM_CHARS; i++)
+  for (int i=48; i<NUM_CHARS; i++)
   {
     if (occ[i].num_occurrences > *max)
     {

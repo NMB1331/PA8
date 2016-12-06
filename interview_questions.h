@@ -88,6 +88,18 @@ int is_prime(int num);
 int sum_primes(unsigned int n);
 
 /*************************************************************
+* Function: init_occ_array                                  *
+* Date Created: 12/4/2016                                   *
+* Date Last Modified: 12/4/2016                             *
+* Description: Initializes array for number 6               *
+* Input parameters: Occurrences array, int size             *
+* Returns: None                                             *
+* Preconditions: None                                       *
+* Postconditions: None                                      *
+*************************************************************/
+void init_occ_array(Occurrences occ[], int size);
+
+/*************************************************************
 * Function: maximum_occurrences                             *
 * Date Created: 12/4/2016                                   *
 * Date Last Modified: 12/4/2016                             *
@@ -112,4 +124,4 @@ void maximum_occurrences(char *string, Occurrences occ[], int *max, char *max_ch
 *************************************************************/
 int smallest_sum_sequence(signed int arr[], int size);
 
-#endif 
+#endif
