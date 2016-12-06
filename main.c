@@ -1,6 +1,9 @@
 #include "interview_questions.h"
 #include "interview_questions.c"
 
+//Chris and John: Don't steal my fucking code
+//I will seriously stab you. If you need help, just ask
+
 int main(void)
 {
 	printf("PA8, bitches!\n\n");
