@@ -1,6 +1,7 @@
 #include "interview_questions.h"
 
-//John and Chris: Seriously. Don't fuck with me
+//John and Chris: Seriously. Don't fuck with me.
+//You will regret it.
 
 //Function that copies one string into another
 char* my_str_n_cpy(char *dest, const char *src)
@@ -17,9 +18,9 @@ char* my_str_n_cpy(char *dest, const char *src)
 }
 
 //Function that finds the index of an item in a sorted array using binary search
-int binary_search(int sorted_array[10], int targ)
+int binary_search(int sorted_array[10], int targ, int size)
 {
-  int left = 0, right = 10, mid = 0;
+  int left = 0, right = size, mid = 0;
   while (left <= right)
   {
     mid = (right - left) / 2;
@@ -158,6 +159,56 @@ int sum_primes(unsigned int n)
 
 }
 
+//Function that determines the frequency of each character found in a string
+void maximum_occurrences(char *string, Occurrences occ[], int *max, char *max_char)
+{
+  int counter = 0;
+  //Loops through the string; counts number of each letter
+  while (string)
+  {
+      occ[*string].num_occurrences++;
+      counter++;
+      string++;
+  }
+  //Determines the frequency of every character (letter)
+  for (int i=0; i<NUM_CHARS; i++)
+  {
+    occ[i].frequency = (double) occ[i].num_occurrences / counter;
+  }
+  //Returns (through pointers) the character with the max number of occurrences
+  *max = 0;
+  *max_char = '\0';
+  for (int i=0; i<NUM_CHARS; i++)
+  {
+    if (occ[i].num_occurrences > *max)
+    {
+      *max = occ[i].num_occurrences;
+      *max_char = (char) i;
+    }
+  }
+  printf("Max char: %c, num occurrences: %d\n", *max_char, *max);
+
+}
+
+//Function that finds the smallest sum of a sequnce in an array
+int smallest_sum_sequence(signed int arr[], int size)
+{
+  int min_sf = 0, min_eh = 0;
+  for (int i=0; i<size; i++)
+  {
+    min_eh += arr[i];
+    if (min_eh > 0)
+    {
+      min_eh = 0;
+    }
+    else if (min_sf > min_eh)
+    {
+      min_sf = min_eh;
+    }
+
+  }
+  return min_sf;
+}
 
 
 
